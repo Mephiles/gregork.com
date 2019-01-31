@@ -8,6 +8,7 @@ var passport = require('passport');
 
 // Models
 var User = require("../models/user");
+    const Log = require("../scripts/log");
 
 // ==========================================
 // ROUTES
@@ -28,6 +29,20 @@ router.get("/projects", function(req, res){
     console.log("Loading PROJECTS");
     res.render("projects");
 });
+
+router.get("/logs", function(req, res){
+    console.log("Loading LOGS");
+
+    Log.find({}, function(err, data){
+        if(err){
+            console.log("ERROR", err);
+            req.flash("error", err.message);
+            return res.redirect("/");
+        }
+        
+        res.render("logs", {data: data});
+    });
+})
 
 // FUNCTIONS
 function isLoggedIn(req, res, next){

@@ -43,7 +43,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req, res, next){
 	const ip = req.headers['x-real-ip'] || req.connection.remoteAddress;
-	console.log("Connected2 IP -", ip);
+	const method = req.method;
+
+	console.log("Connected IP -", ip);
+
+	log(ip, method);
 
 	next();
 });
