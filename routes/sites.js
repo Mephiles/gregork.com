@@ -14,8 +14,12 @@ const Log = require("../models/log");
 // ROUTES
 // ==========================================
 
-// SITES
 router.get("/", function(req, res){
+    res.send("Hello world!");
+});
+
+// SITES
+router.get("/asd", function(req, res){
     console.log("Loading INDEX");
     User.findOne({username: "gregor"}, function(err, user){
         if(err)

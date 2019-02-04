@@ -26,6 +26,7 @@ var expressSession = require("express-session");
 // Models & Scripts
 var User = require("./models/user");
 var log = require("./scripts/log.js");
+var Ip = require("./models/ip");
 
 // Middleware
 	// uncomment after placing your favicon in /public
