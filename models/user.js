@@ -10,11 +10,15 @@ const userSchema = new mongoose.Schema({
         _id: false
     },
     password: String,
-    birthDate: Date,
+    birthDate: {
+        year: Number,
+        month: Number,
+        day: Number
+    },
     gender: String,
     contact: {
         _id: false,
-        phone: Number,
+        phone: String,
         email: String,
         address: {
             _id: false,

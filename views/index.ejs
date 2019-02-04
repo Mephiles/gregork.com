@@ -1,5 +1,81 @@
 <% include partials/header%>
 
-<h2>&nbsp;&nbsp;&nbsp;HELLO WORLD! - index</h2>
+<style type="text/css">
+	body{
+		/*border-left: 0.2px solid lightgrey;*/
+		/*border-right: 0.2px solid lightgrey;*/
+	}
+
+	#first-container {
+		width: 90%;
+		height: 600px;
+		background-color: #EFF5E9;
+		margin: auto;
+		display: flex;
+		flex-direction: row;
+	}
+
+	#first-container #pic {
+		width: 350px;
+		height: 400px;
+		margin-top: 100px;
+		margin-left: 100px;
+
+		background-color: pink;
+	}
+
+	#first-container #basic-info {
+		width: 500px;
+		height: 300px;
+		margin-top: 150px;
+		margin-left: 100px;
+
+		background-color: lightblue;
+	}
+</style>
+
+<%
+	function getAge(birthDate){
+		const bYear = birthDate.year;
+		const bMonth = birthDate.month;
+		const bDate = birthDate.day;
+
+		const curDate = new Date();
+
+		const cYear = curDate.getFullYear();
+		const cMonth = curDate.getMonth() + 1;
+		const cDate = curDate.getDate();
+
+		var age = cYear-bYear;
+		console.log("AGE1", age);
+
+		if(cMonth >= bMonth){
+			if(cMonth === bMonth){
+				if(cDate <= bDate){
+					return age-1;
+				}
+			}
+		} else {
+			return age-1;
+		}
+
+	}	
+
+
+%>
+
+<div id="main">
+	<div id="first-container">
+		<div id="pic">
+			
+		</div>
+		<div id="basic-info">
+			Name: <%= user.name.first %> <%= user.name.middle %> <%= user.name.last %><br>
+			Age: <%= getAge(user.birthDate) %><br>
+		</div>
+	</div>
+	<div id="second-container">
+	</div>
+</div>
 
 <% include partials/footer%>

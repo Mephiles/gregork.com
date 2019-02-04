@@ -4,7 +4,11 @@
 
 <ul>
 	<% for(let log of data){%>
-		<li><%log.ip%></li>
+		<li>
+			<span><%=log.type%></span>
+			<span><%=log.ip%></span>
+			<span><%=log.date%></span>
+		</li>
 	<%}%>
 </ul>
 

@@ -1,6 +1,6 @@
 function log(ip, method){
 	const date = new Date();
-	const Log = require("../scripts/log");
+	const Log = require("../models/log");
 
 	Log.create({
 		type: method,

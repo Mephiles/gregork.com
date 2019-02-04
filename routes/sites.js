@@ -7,8 +7,8 @@ var passport = require('passport');
 // ==========================================
 
 // Models
-var User = require("../models/user");
-    const Log = require("../scripts/log");
+const User = require("../models/user");
+const Log = require("../models/log");
 
 // ==========================================
 // ROUTES
@@ -17,7 +17,12 @@ var User = require("../models/user");
 // SITES
 router.get("/", function(req, res){
     console.log("Loading INDEX");
-    res.render("index");
+    User.findOne({username: "gregor"}, function(err, user){
+        if(err)
+            console.log("ERROR", err);
+        else
+            res.render("index", {user:user});
+    });
 });
 
 router.get("/education", function(req, res){
@@ -42,7 +47,7 @@ router.get("/logs", function(req, res){
         
         res.render("logs", {data: data});
     });
-})
+});
 
 // FUNCTIONS
 function isLoggedIn(req, res, next){

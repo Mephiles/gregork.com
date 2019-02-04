@@ -5,6 +5,7 @@ console.log("SERVER START");
 // ==========================================
 
 const initialRun = false;
+const connectionLimit = 100;
 
 // ==========================================
 // SETUP
@@ -63,6 +64,55 @@ app.use(function(req, res, next){
 
     next();
 });
+app.use(function(req, res, next){
+	const _ip = req.headers["x-real-ip"] || req.connection.remoteAddress;
+
+	Ip.findOne({ip:_ip}, function(err, ip){
+		if(err)
+			console.log("ERROR", err);
+
+		if(ip){
+			if(ip.blocked === true){
+				return res.status(401).send({code: 1, msg: "IP blocked"});
+			}
+			if(ip.connections >= connectionLimit){
+				ip.blocked = true;
+				ip.date = new Date();
+				ip.save();
+				return res.status(401).send({code: 1, msg: "Sorry, You have reached the request limit. Your IP will be unblocked in 3 minutes"});
+			}
+
+			ip.connections = ip.connections + 1;
+			ip.blocked = false;
+			ip.date = new Date();
+			ip.log.push({
+				date: new Date(),
+				request: req.originalUrl,
+				method: req.method
+			});
+			ip.save();
+			next();
+		} else {
+			let curDate = new Date();
+			Ip.create({
+				ip: _ip,
+				connections: 1,
+				blocked: false,
+				date: curDate,
+				log: [{
+					date: curDate,
+					request: req.originalUrl,
+					method: req.method
+				}]
+			}, function(err, ip){
+				if(err){
+					console.log("ERROR", err);
+					return res.result(500).send(err);
+				}
+			});
+		}
+	});
+});
 
 // ==========================================
 // DATABASE
@@ -81,6 +131,46 @@ passport.deserializeUser(User.deserializeUser());
 // ==========================================
 // LOGIC
 // ==========================================
+
+User.findOne({username: "gregor"}, function(err, user){
+	if(err)
+		console.log("ERROR", err);
+
+	if(!user)
+		User.create({
+			username: "gregor",
+			name: {
+			    first: "Gregor",
+			    middle: "",
+			    last: "Kaljulaid"
+			},
+			password: "test",
+			birthDate: {
+				year: 2001,
+				month: 4,
+				day: 5
+			},
+			gender: "Male",
+			contact: {
+			    phone: "+372 565 5723",
+			    email: "gregor.kaljulaid@gmail.com",
+			    address: {
+			        country: "Estonia",
+			        state: "Raplamaa",
+			        city: "Märjamaa",
+			        street: "",
+			        house: "",
+			        appartment: ""
+			    }
+			},
+			last_edited: new Date()
+		}, function(err, user){
+			if(err)
+				console.log("ERROR", err);
+			else
+				console.log("USER CREATED");
+		});
+});
 
 // ==========================================
 // ROUTES
