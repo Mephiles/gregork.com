@@ -119,7 +119,7 @@ app.use(function(req, res, next){
 // DATABASE
 // ==========================================
 
-mongoose.connect("mongodb://localhost:27017/gregork", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27002/gregork", { useNewUrlParser: true });
 
 // ==========================================
 // PASSPORT
