@@ -1,83 +1,46 @@
-<% include partials/header%>
+<% include partials/header %>
 
-<h2>&nbsp;&nbsp;&nbsp;HELLO WORLD! - index</h2>
-
-
-<style type="text/css">
-	body{
-		/*border-left: 0.2px solid lightgrey;*/
-		/*border-right: 0.2px solid lightgrey;*/
-	}
-
-	#first-container {
-		width: 90%;
-		height: 600px;
-		background-color: #EFF5E9;
-		margin: auto;
-		display: flex;
-		flex-direction: row;
-	}
-
-	#first-container #pic {
-		width: 350px;
-		height: 400px;
-		margin-top: 100px;
-		margin-left: 100px;
-
-		background-color: pink;
-	}
-
-	#first-container #basic-info {
-		width: 500px;
-		height: 300px;
-		margin-top: 150px;
-		margin-left: 100px;
-
-		background-color: lightblue;
-	}
-</style>
-
-<%
-	function getAge(birthDate){
-		const bYear = birthDate.year;
-		const bMonth = birthDate.month;
-		const bDate = birthDate.day;
-
-		const curDate = new Date();
-
-		const cYear = curDate.getFullYear();
-		const cMonth = curDate.getMonth() + 1;
-		const cDate = curDate.getDate();
-
-		var age = cYear-bYear;
-
-		if(cMonth >= bMonth){
-			if(cMonth === bMonth){
-				if(cDate <= bDate){
-					return age-1;
-				}
-			}
-		} else {
-			return age-1;
-		}
-
-	}	
-
-
-%>
-
-<div id="main">
-	<div id="first-container">
-		<div id="pic">
-			
+<div class="container" style="margin-top: 20px">
+	<div class="row">
+		<div class="col-sm">
+			<img src="https://www.sccpre.cat/png/big/33/335263_black-person-png.png" class="img-fluid" alt="Gregor Kaljulaid" id="person-img">
 		</div>
-		<div id="basic-info">
-			Name: <%= user.name.first %> <%= user.name.middle %> <%= user.name.last %><br>
-			Age: <%= getAge(user.birthDate) %><br>
+		<div class="col-sm" id="person-info">
+			<ul>
+				<li><div class="heading-1">Front-End</div>
+					<ul>
+						<li>
+							<div class="heading-2">HTML <i class="fas fa-circle list-style"></i></div>
+							<div class="heading-2">CSS <i class="fas fa-circle list-style"></i></div>
+							<div class="heading-2">JavaScript <i class="fas fa-circle list-style"></i></div>
+						</li>
+					</ul>
+				</li>
+				<li><div class="heading-1">Back-End</div>
+					<ul>
+						<li>
+							<div class="heading-2">Node.js <i class="fas fa-circle list-style"></i></div>
+							<div class="heading-2">MongoDB <i class="fas fa-circle list-style"></i></div>
+						</li>
+					</ul>
+				</li>
+				<li><div class="heading-1">Android</div>
+					<ul>
+						<li>
+							<div class="heading-2">Android Studio - Java <i class="fas fa-circle list-style"></i></div>
+						</li>
+					</ul>
+				</li>
+				<li><div class="heading-1">Other</div>
+					<ul>
+						<li>
+							<div class="heading-2">Python <i class="fas fa-circle list-style"></i></div>
+						</li>
+					</ul>
+				</li>
+			</ul>
 		</div>
-	</div>
-	<div id="second-container">
 	</div>
 </div>
 
-<% include partials/footer%>
+<% include partials/footer %>

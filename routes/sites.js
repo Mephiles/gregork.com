@@ -15,28 +15,18 @@ const Log = require("../models/log");
 // ==========================================
 
 router.get("/", function(req, res){
-    res.send("Hello world!");
-});
-
-// SITES
-router.get("/asd", function(req, res){
     console.log("Loading INDEX");
-    User.findOne({username: "gregor"}, function(err, user){
-        if(err)
-            console.log("ERROR", err);
-        else
-            res.render("index", {user:user});
-    });
+    res.render("index", {site: "home"});
 });
 
 router.get("/education", function(req, res){
     console.log("Loading EDUCATION");
-    res.render("education");
+    res.render("education", {site: "education"});
 });
 
 router.get("/projects", function(req, res){
     console.log("Loading PROJECTS");
-    res.render("projects");
+    res.render("projects", {site: "projects"});
 });
 
 router.get("/logs", function(req, res){
