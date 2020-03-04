@@ -4,27 +4,8 @@ console.log("SERVER START");
 // SETTINGS
 // ==========================================
 
-// --------- FILE RUN ARGUMENTS ----------------
-var minimist = require('minimist')
-
-var args = minimist(process.argv.slice(2), {
-  boolean: 'development',
-  alias: {d: 'development', dev: 'development'},
-  default: {
-  	development: false
-  }
-})
-// --------- FILE RUN ARGUMENTS ----------------
-
-const DEVELOPMENT = args.development;
-
-console.log(`Mode: ${DEVELOPMENT? "DEVELOPMENT":"RELEASE"}`);
-
-const initialRun = false;
-const connectionLimit = 100;
-
-const serverPORT = DEVELOPMENT? 8080:8081;
-const databasePORT = DEVELOPMENT? 27017:27002;
+const serverPORT = 8080;
+const databasePORT = 27017;
 
 console.log(`Server PORT: ${serverPORT}`);
 console.log(`Database PORT: ${databasePORT}`);
@@ -46,13 +27,10 @@ var passportLocalMongoose = require("passport-local-mongoose");
 var flash = require('connect-flash');
 var expressSession = require("express-session");
 var favicon = require('serve-favicon');
-// var fetch = require("node-fetch");
 
 
 // MODELS & SCRIPTS
 var User = require("./models/user");
-var log = require("./scripts/log.js");
-var Ip = require("./models/ip");
 
 // MIDDLEWARE
 app.use(favicon('./public/favicon.ico'));
@@ -68,75 +46,6 @@ app.use("/media", express.static("media"));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(function(req, res, next){
-// 	const ip = req.headers['x-real-ip'] || req.connection.remoteAddress;
-// 	const method = req.method;
-
-// 	console.log("Connected IP -", ip);
-// 	log(ip, method);
-// 	next();
-// });
-// app.use(function(req, res, next){
-//     res.locals.error = req.flash("error");
-//     res.locals.success = req.flash("success");
-    
-//     if(req.user){
-//         res.locals.user = user;
-//     } else {
-//         res.locals.user = req.user;
-//     }
-
-//     next();
-// });
-// app.use(function(req, res, next){
-// 	const _ip = req.headers["x-real-ip"] || req.connection.remoteAddress;
-
-// 	Ip.findOne({ip:_ip}, function(err, ip){
-// 		if(err)
-// 			console.log("ERROR", err);
-
-// 		if(ip){
-// 			if(ip.blocked === true){
-// 				return res.status(401).send({code: 1, msg: "IP blocked"});
-// 			}
-// 			if(ip.connections >= connectionLimit){
-// 				ip.blocked = true;
-// 				ip.date = new Date();
-// 				ip.save();
-// 				return res.status(401).send({code: 1, msg: "Sorry, You have reached the request limit. Your IP will be unblocked in 3 minutes"});
-// 			}
-
-// 			ip.connections = ip.connections + 1;
-// 			ip.blocked = false;
-// 			ip.date = new Date();
-// 			ip.log.push({
-// 				date: new Date(),
-// 				request: req.originalUrl,
-// 				method: req.method
-// 			});
-// 			ip.save();
-// 			next();
-// 		} else {
-// 			let curDate = new Date();
-// 			Ip.create({
-// 				ip: _ip,
-// 				connections: 1,
-// 				blocked: false,
-// 				date: curDate,
-// 				log: [{
-// 					date: curDate,
-// 					request: req.originalUrl,
-// 					method: req.method
-// 				}]
-// 			}, function(err, ip){
-// 				if(err){
-// 					console.log("ERROR", err);
-// 					return res.result(500).send(err);
-// 				}
-// 			});
-// 		}
-// 	});
-// });
 
 // ==========================================
 // DATABASE
@@ -144,7 +53,7 @@ app.use(passport.session());
 
 console.log(`Linking database..`);
 try{
-	mongoose.connect(`mongodb://localhost:${databasePORT}/gregork`, { useNewUrlParser: true });
+	mongoose.connect(`mongodb://localhost:${databasePORT}/gregork`, { useNewUrlParser: true});
 } catch(err){
 	logError(err);
 }
@@ -160,46 +69,6 @@ passport.deserializeUser(User.deserializeUser());
 // ==========================================
 // LOGIC
 // ==========================================
-
-// User.findOne({username: "gregor"}, function(err, user){
-// 	if(err)
-// 		console.log("ERROR", err);
-
-// 	if(!user)
-// 		User.create({
-// 			username: "gregor",
-// 			name: {
-// 			    first: "Gregor",
-// 			    middle: "",
-// 			    last: "Kaljulaid"
-// 			},
-// 			password: "test",
-// 			birthDate: {
-// 				year: 2001,
-// 				month: 4,
-// 				day: 5
-// 			},
-// 			gender: "Male",
-// 			contact: {
-// 			    phone: "+372 565 5723",
-// 			    email: "gregor.kaljulaid@gmail.com",
-// 			    address: {
-// 			        country: "Estonia",
-// 			        state: "Raplamaa",
-// 			        city: "Märjamaa",
-// 			        street: "",
-// 			        house: "",
-// 			        appartment: ""
-// 			    }
-// 			},
-// 			last_edited: new Date()
-// 		}, function(err, user){
-// 			if(err)
-// 				console.log("ERROR", err);
-// 			else
-// 				console.log("USER CREATED");
-// 		});
-// });
 
 // ==========================================
 // ROUTES

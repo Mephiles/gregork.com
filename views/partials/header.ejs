@@ -1,102 +1,124 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Gregor Kaljulaid | Programmer</title>
-		
-		<!-- jQuery -->
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			crossorigin="anonymous">
-		</script>
-		
-		<!-- Font Awesome -->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-		
-		<!-- CSS -->
-		<!-- <link type="text/css" rel="stylesheet" href="/app.css"> -->
+<head>
+	<title>Gregor Kaljulaid | Developer</title>
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-		<!-- Google Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Raleway:400,600&display=swap" rel="stylesheet">
-		
-		<!-- Bootstrap -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,600&display=swap" rel="stylesheet">
+	
+	<!-- CSS style -->
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Raleway', sans-serif;
+			font-size: 18px;
+		}
 
-		<!-- CSS style -->
-		<style type="text/css">
-			body {
-				/*font-family: Arial;*/
-				font-family: 'Raleway', sans-serif;
-			}
+		a {
+			text-decoration: none;
+			cursor: pointer;
+		}
 
-			#footer {
-				color: grey;
-			}
+		#nav {
+			width: 100%;
+			height: 70px;
+			background-color: #f5f5f5;
+		}
 
-			#footer a {
-				color: #69b1ff;
-			}
+		#content {
+			width: 60%;
+			margin: auto;
+		}
 
-			#person-img {
-				padding: 40px;
-				/*background-color: #056570db;*/
-			}
+		#nav-inner {
+			width: 60%;
+			margin: auto;
+			font-size: 19px;
+			line-height: 70px;
+		}
 
-			#person-info {
-				text-align: right;
-				background-color: #056570db;
-				padding-top: 20px;
-				padding-right: 20px;
-			}
+		#nav-inner .left, #nav-inner .right{
+			float: left;
+		}
 
-			#person-info ul {
-				list-style: none;
-			}
+		#nav-inner .left {
+			width: 50%;
+		}
+		#nav-inner .right {
+			width: 50%;
+		}
 
-			#person-info .heading-1 {
-				font-size: 35px;
-				color: #edd807;
-			}
+		#nav-inner .item {
+			float: left;
+			margin-left: 20px;
+			color: #7b7b7b;
+		}
 
-			#person-info .heading-2 {
-				font-size: 18px;
-				padding-right: 15px;
-				color: #ededed;
-			}
+		#nav-inner .right .item {
+			float: right;
+			margin-left: 20px;
+			color: #7b7b7b;
+		}
 
-			#person-info i.list-style {
-				font-size: 5px;
-				position: relative;
-				top: -4px;
-				color: #414141;
-			}
-		</style>
-	</head>
-	<body>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="container">
-				<span class="navbar-brand mb-0 h1">GK</span>
-			    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			    </button>
+		#nav-inner .item a {
+			color: inherit;
+		}
 
-			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-				    <ul class="navbar-nav mr-auto">
-					    <li class="nav-item <%= site == 'home'? 'active': ''%>">
-						    <a class="nav-link" href="/">Home</a>
-					    </li>
-					    <li class="nav-item <%= site == 'education'? 'active': ''%>">
-						    <a class="nav-link" href="/education">Education</a>
-					    </li>
-					    <li class="nav-item <%= site == 'projects'? 'active': ''%>">
-						    <a class="nav-link" href="/projects">Projects</a>
-					    </li>
-				    </ul>
-			  	</div>
+		#nav-inner .item:hover {
+			color: black;	
+		}
+
+		#nav-inner .left .item:first-of-type {
+			margin-left: 0;
+		}
+
+		#nav-inner .header.item {
+			font-size: 27px;
+			margin-right: 20px;
+			color: black;
+		}
+
+		#nav-inner .header.item span {
+			float: none;
+		}
+
+		#nav-inner .item .active-symbol{
+			display: none;
+		}
+
+		#nav-inner .active.item .active-symbol{
+			display: block;
+			line-height: 69px;
+			color: black;
+			font-size: 25px;
+		}
+
+		#nav-inner .item span {
+			float: left;
+		}
+
+		.bold {
+			font-weight: 600;
+		}
+	</style>
+</head>
+<body>
+	<div id="nav">
+		<div id="nav-inner">
+			<div class="left">
+				<div class="header item">G<span class="bold">K</span></div>
 			</div>
-		</nav>
-		<div class="container">
-			
-			
+			<div class="right">
+				<div class="item"><a href="/projects"><span class="active-symbol"><&nbsp;</span><span>Projects</span><span class="active-symbol">&nbsp;></span></a></div>
+				<div class="item"><a href="/education"><span class="active-symbol"><&nbsp;</span><span>Education</span><span class="active-symbol">&nbsp;></span></a></div>
+				<div class="item"><a href="/"><span class="active-symbol"><&nbsp;</span><span>Home</span><span class="active-symbol">&nbsp;></span></a></div>
+			</div>
+		</div>
+	</div>
+	<div id="content">
+		
+		
