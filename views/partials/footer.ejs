@@ -11,6 +11,7 @@
             display: flex;
             background: white;
             font-size: 15px;
+            overflow-x: scroll;
         }
         body>.footer .item {
             flex: 1 0 auto;
@@ -55,10 +56,15 @@
 				font-size: 22px !important;
                 background-color: white !important;
                 height: unset !important;
-                border-top: unset !important;
             }
         }
         @media screen and (max-width: 600px){
+            body>.footer .item {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+        }
+        @media screen and (max-width: 400px){
             body>.footer {
                 display: none;
             }
