@@ -1,3 +1,19 @@
     </div>
+    <script>
+        function findParent(element, attributes={}){
+            if(!element.parentElement){
+                return undefined;
+            } else {
+                if(attributes.class && element.parentElement.classList.contains(attributes.class)){
+                    return element.parentElement;
+                }
+                if(attributes.id && element.parentElement.id == attributes.id){
+                    return element.parentElement;
+                }
+
+                return findParent(element.parentElement, attributes);
+            }
+        }
+    </script>
 </body>
 </html>

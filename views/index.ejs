@@ -1,36 +1,77 @@
 <% include partials/header %>
 
 <style>
-    #main {
-        width: 70%;
+    .main {
         height: 400px;
-        margin: auto;
-        margin-top: 100px;
         border: 0.5px solid lightgrey;
+        white-space: nowrap;
     }
 
-    #main div {
-        float: left;
+    .main>div {
+        display: inline-block;
         width: 50%;
+        height: 100%;
+        vertical-align: top;
+    }
+    
+    #main-img {
+        /* background-image: url("/person.png"); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
-    img {
-        width: 100%;
-        height: 100%;
+    #main-info {
+        background-color: #6889c5;
+    }
+    #main-info .heading {
+        padding-top: 30px;
+        font-size: 25px;
+        text-align: center;
+    }
+    #main-info .list {
+        padding-top: 20px;
+        padding-right: 10px;
+    }
+    #main-info .list.right * {
+        text-align: right;
+    }
+    #main-info .list .heading {
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+    #main-info .list .item {
+        position: relative;
+        margin-right: 10px;
+    }
+    #main-info .list .item:after {
+        content: "-";
+        position: absolute;
+        right: -10px;
     }
 </style>
 
-<div id="main">
-    <div id="img"><img src="person.png" alt=""></div>
-    <div id="info"></div>
+<div class="main">
+    <div id="main-img">Picture</div>
+    <div id="main-info">
+        <div class="heading">Gregor Kaljulaid</div>
+        <div class="list right">
+            <div class="heading">Systems</div>
+            <div class="item">Windows</div>
+            <div class="item">Linux</div>
+            <div class="heading">Web</div>
+            <div class="item">HTML/CSS/JS</div>
+            <div class="item">Node.JS</div>
+            <div class="item">MongoDB</div>
+            <div class="item">Browser extensions</div>
+        </div>
+    </div>
 </div>
 
-
-
 <script type="text/javascript">
-    window.onload = function(){
+    window.addEventListener("load", function(){
         document.querySelector("a[href='/']").parentElement.classList.add("active");
-    }
+    });
 </script>
 
 <% include partials/footer %>
