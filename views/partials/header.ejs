@@ -55,7 +55,7 @@
 		}
 		.nav-inner .right {
 			display: inline-flex;
-			flex-flow: row;
+			flex-flow: row-reverse;
 		}
 		.nav-inner .left .logo {
 			font-size: 27px;
@@ -101,7 +101,8 @@
 		}
 
 		body .nav .nav-inner .active-mobile-nav {
-			display: block !important;
+			display: flex !important;
+			flex-flow: column-reverse !important;
 			position: absolute !important;
 			top: 70px !important;
 			width: 100% !important;
@@ -175,9 +176,9 @@
 				<div class="logo">G<span>K</span></div>
 			</div>
 			<div class="right links">
-				<div class="link"><a href="/">Home</a></div>
-				<div class="link"><a href="/education">Education</a></div>
 				<div class="link"><a href="/projects">Projects</a></div>
+				<div class="link"><a href="/education">Education</a></div>
+				<div class="link"><a href="/">Home</a></div>
 				<!-- <div class="link"><a href="/career">Career</a></div> -->
 			</div>
 			<div class="right hamburger">
