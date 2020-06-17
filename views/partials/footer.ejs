@@ -1,4 +1,42 @@
     </div>
+    <style>
+        body>.footer {
+            width: 70%;
+            left: 15%;
+            height: 50px;
+            border: 1px solid lightgray;
+            border-bottom: unset;
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            background: white;
+            font-size: 15px;
+        }
+        body>.footer .item {
+            flex: 1 0 auto;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        body>.footer .item * {
+            display: inline-block;
+        }
+        body>.footer .item i {
+            margin-right: 5px;
+        }
+        body>.footer .fa-discord {
+            color: #7289DA;
+        }
+        body>.footer .fa-facebook {
+            color: #4267B2;
+        }
+    </style>
+    <div class="footer">
+        <div class="item"><i class="fab fa-facebook"></i><div class="text">Gregor Kaljulaid</div></div>
+        <div class="item"><i class="fab fa-github"></i><div class="text">Mephiles</div></div>
+        <div class="item"><i class="fab fa-steam"></i><div class="text">Mephiles</div></div>
+        <div class="item"><i class="fab fa-discord"></i><div class="text">Mephiles#1547</div></div>
+    </div>
     <script>
         function findParent(element, attributes={}){
             if(!element.parentElement){
