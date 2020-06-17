@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+<% include ./project_style.ejs %>
+
+<div class="main">
+    <div class="heading">The Red Dog Company</div>
+    <div class="time">2018</div>
+    <div class="description">
+I worked with a pre-built website for The Red Dog Compay Llc. The website had minor build flaws with pixel positions, etc.
+I also added support for more languages (provided by a translator) and created a usable mobile view.
+This job needed a lot of analyzing to understand someone else's code and to build on that.
+    </div>
+    <div class="last-edited">last edited: 18.06.2020</div>
+    <div class="footer">
+        <div class="heading">Links</div>
+        <div class="info">
+            <div class="item"><a href="https://www.reddogcompany.eu/" target="_blank">Website</a></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.addEventListener("load", function(){
+        document.querySelector("a[href='/projects']").parentElement.classList.add("active");
+    });
+</script>
+
+<% include ../partials/footer %>
