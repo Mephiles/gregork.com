@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Gregor Kaljulaid | SE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -17,12 +18,22 @@
 			min-height: 100%;
 			font-family: 'Raleway', sans-serif;
 			font-size: 17px;
+			min-width: 340px;
 		}
 
 		a {
 			text-decoration: none;
 			cursor: pointer;
 			color: inherit;
+		}
+
+		.nav .nav-inner .hamburger {
+			display: none;
+			height: 70px;
+		}
+		.hamburger i {
+			line-height: 70px;
+			cursor: pointer;
 		}
 
 		.nav {
@@ -44,7 +55,7 @@
 		}
 		.nav-inner .right {
 			display: inline-flex;
-			flex-flow: row-reverse;
+			flex-flow: row;
 		}
 		.nav-inner .left .logo {
 			font-size: 27px;
@@ -88,19 +99,89 @@
 			margin: auto;
 			margin-top: 100px;
 		}
+
+		body .nav .nav-inner .active-mobile-nav {
+			display: block !important;
+			position: absolute !important;
+			top: 70px !important;
+			width: 100% !important;
+			left: 0px !important;
+			background-color: white !important;
+		}
+		.active-mobile-nav .link {
+			display: block !important;
+			width: 100% !important;
+			border-bottom: 1px solid lightgray !important;
+			margin: 0px !important;
+			padding: 0px !important;
+			text-align: center !important;
+		}
+		.active-mobile-nav .link:before {
+			content: "" !important;
+		}
+		.active-mobile-nav .link:before {
+			content: "" !important;
+		}
+
+		.active-mobile-footer {
+			display: block !important;
+			position: absolute !important;
+			width: 100% !important;
+		}
+		.active-mobile-footer .item {
+			display: block !important;
+			width: 100% !important;
+		}
+
+		@media screen and (max-width: 1000px){
+			.nav-inner {
+				width: 95% !important;
+			}
+			.content, .main {
+				width: 95%;
+			}
+        }
+		@media screen and (max-width: 650px){
+			.nav-inner .left {
+				width: fit-content;
+			}
+			.nav-inner .right {
+				width: fit-content;
+				float: right;
+			}
+        }
+		@media screen and (max-width: 400px){
+			.main {
+				margin-top: 50px !important;
+			}
+			.nav-inner {
+				width: 80% !important;
+			}
+			.nav-inner .right:not(.hamburger) {
+				display: none !important;
+			}
+			.hamburger {
+				display: inline-flex !important;
+			}
+        }
+        
 	</style>
 </head>
 <body>
+	<!-- <div class="mobile-nav-bar"></div> -->
 	<div class="nav">
 		<div class="nav-inner">
 			<div class="left">
 				<div class="logo">G<span>K</span></div>
 			</div>
-			<div class="right">
+			<div class="right links">
+				<div class="link"><a href="/">Home</a></div>
+				<div class="link"><a href="/education">Education</a></div>
 				<div class="link"><a href="/projects">Projects</a></div>
 				<!-- <div class="link"><a href="/career">Career</a></div> -->
-				<div class="link"><a href="/education">Education</a></div>
-				<div class="link"><a href="/">Home</a></div>
+			</div>
+			<div class="right hamburger">
+				<i class="fas fa-bars"></i>
 			</div>
 		</div>
 	</div>

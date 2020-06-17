@@ -1,20 +1,26 @@
 <% include partials/header%>
 
 <style>
+    .content {
+        width: 80%;
+    }
     .main {
         display: flex;
+        flex-flow: row wrap;
         flex-wrap: wrap;
-        flex-flow: row;
+        flex-direction: row; 
         padding: 20px;
     }
     .main>.item {
-        width: 250px;
-        height: 270px;
-        margin-right: 50px;
+        min-width: 250px;
+        flex: 1 0 30%;
+        /* height: 270px; */
+        margin-right: 3%;
         border: 1px solid lightgray;
         padding: 10px;
         box-sizing: border-box;
         cursor: pointer;
+        margin-bottom: 20px;
     }
     .main>.item a {
         width: inherit;
@@ -29,7 +35,8 @@
     }
 
     .main>.item .info {
-        margin-bottom: 60px;
+        margin-bottom: 40px;
+        text-align: center;
     }
     .main>.item .info>.item {
         font-size: 14px;
@@ -37,6 +44,12 @@
     .main>.item .description {
         text-align: center;
     }
+
+    /* @media screen and (max-width: 1500px){
+        .content {
+            width: 95%;
+        }
+    } */
 </style>
 
 <div class="main">

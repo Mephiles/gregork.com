@@ -51,6 +51,40 @@
         position: absolute;
         right: -10px;
     }
+
+    @media screen and (max-width: 600px){
+        .main>div {
+            width: 100% !important;
+            display: block !important;
+        }
+        #main-img {
+            background-position-x: 50px !important;
+        }
+        #main-info * {
+            text-align: center !important;
+        }
+        #main-info>.heading {
+            font-size: 29px !important;
+            font-weight: 600 !important;
+        }
+        #main-info .right .heading {
+            font-size: 29px !important;
+        }
+        #main-info .item {
+            font-size: 20px !important;
+        }
+        #main-info .item:after {
+            content: unset !important;
+        }
+        #main-info .list.right {
+            padding: 0 !important;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        #main-img {
+            background-position-x: 0px !important;
+        }
+    }
 </style>
 
 <div class="main">

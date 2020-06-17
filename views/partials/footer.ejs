@@ -37,6 +37,33 @@
         body>.footer i.fa-facebook {
             color: #4267B2;
         }
+
+        @media screen and (max-width: 1000px){
+            body>.footer {
+                width: 100% !important;
+                left: 0 !important;
+                border-left: unset !important;
+                border-right: unset !important;
+            }
+        }
+        @media screen and (max-width: 800px){
+            body>.footer {
+                width: 100% !important;
+                left: 0 !important;
+                border-left: unset !important;
+                border-right: unset !important;
+				font-size: 22px !important;
+                background-color: white !important;
+                height: unset !important;
+                border-top: unset !important;
+            }
+        }
+        @media screen and (max-width: 600px){
+            body>.footer {
+                display: none;
+            }
+        }
+
     </style>
     <div class="footer">
         <div class="item"><a href="https://www.facebook.com/gkaljulaid" target="_blank"><i class="fab fa-facebook"></i><div class="text">Gregor Kaljulaid</div></a></div>
@@ -59,6 +86,18 @@
                 return findParent(element.parentElement, attributes);
             }
         }
+    </script>
+    <script>
+        window.addEventListener("load", function(){
+            document.querySelector(".hamburger i").addEventListener("click", function(event){
+                document.querySelector(".nav-inner .right.links").classList.toggle("active-mobile-nav");
+                document.querySelector("body>.footer").classList.toggle("active-mobile-footer");
+
+                if(document.querySelector("body>.footer").classList.contains("active-mobile-footer")){
+                    document.querySelector("body>.footer").style.top = (document.querySelector(".nav-inner .right.links").offsetHeight + document.querySelector(".nav-inner .right.links").offsetTop).toString() + "px";
+                }
+            });
+        });
     </script>
 </body>
 </html>
