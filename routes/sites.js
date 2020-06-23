@@ -33,4 +33,10 @@ router.get("/projects/:name", function(req, res){
     console.log("Loading PROJECTS: ", req.params.name);
     res.render("projects/"+req.params.name)
 });
+
+router.get("/skills", function(req, res){
+    console.log("Loading SKILLS");
+    res.render("skills");
+});
+
 module.exports = router;

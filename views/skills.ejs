@@ -1,0 +1,102 @@
+<% include partials/header%>
+
+<style>
+	body {
+		padding-bottom: 100px;
+	}
+
+	.main-heading {
+		font-size: 24px;
+		font-weight: 600;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.section {
+		/* border: 1px solid lightgray; */
+		border-left: 2px solid lightgray;
+		margin-left: 20px;
+		padding-left: 20px;
+		padding-bottom: 30px;
+	}
+
+	.section .heading {
+		font-weight: 600;
+		font-size: 18px;
+		border-bottom: 1px solid lightgray;
+	}
+
+	.section .heading span {
+		font-weight: 400;
+		font-size: 16px;
+	}
+
+	.section .time {
+		font-size: 15px;
+	}
+
+	.section .text {
+		margin-top: 10px;
+		margin-left: 10px;
+	}
+
+	code {
+		font-style: italic;
+		background-color: #f3f3f3;
+	}
+</style>
+
+<div class="main">
+	<div class="main-heading">General</div>
+	<div class="section">
+		<div class="heading">Teamwork<span> - 8/10</span></div>
+		<div class="text">I look at myself as a great teamplayer. I am able to follow the tasks given to me and assist others when needed. 
+			I rated myself 8/10 because I lack experience as a team leader.
+		</div>
+	</div>
+	<div class="main-heading">Technology</div>
+	<div class="section">
+		<div class="heading">HTML/CSS/JS<span> - 7/10</span></div>
+		<div class="text">I have lots of experience with Javascript as a scripting tool in the form of browser extensions. 
+			HTML & CSS are hard to master but I find that I have gotten a lot better using them over the years. 
+			I am able to more efficiently create and use classes, flexboxes and properly structured and named sections to group elements. 
+			<br><br>
+			I rated myself 7/10 because most of my experience has been on the front-end and simplistic back-end. 
+			I lack experience in using and creating highly complex Class structures although I have used Classes for a simple checkers game for example.
+		</div>
+	</div>
+	<div class="section">
+		<div class="heading">Linux<span> - 5/10</span></div>
+		<div class="text">I do not use Linux as my daily driver but I have my own server where I host websites, discord bots, etc. 
+			I feel familiar with simple commands like <code>cd</code>, <code>ls</code>, <code>nano</code>, <code>ssh</code> etc. 
+			<br><br>
+			I rated myself 5/10 because I have not used Linux for too long and I often have to look up commands. 
+			But I have had lots of problems (with Nginx, running Java, installing and using new software) that I have successfully solved on my own by Googling and concluding the right solutions.
+		</div>
+	</div>
+	<div class="section">
+		<div class="heading">Back-end (Node.js)<span> - 7/10</span></div>
+		<div class="text">I have built all my back-end apps using Node.js (express). As Javascript is my strongest language then I find it easy and logical to use it for the server-side code too. 
+			I have experience with packages like <code>passport</code>, <code>mongoose</code>, <code>body-parser</code>, <code>flash</code>, etc.
+			<br><br>
+			My main database has been MongoDB and the main templating language EJS. 
+			I have rated myself 7/10 just because I don't have that much experience with large-scale websites/applications. 
+			Most of my own buils have been simple few-page-websites or one-file-bots.
+		</div>
+	</div>
+	<div class="main-heading">Other</div>
+	<div class="section">
+		<div class="heading">Debating<span> - 8/10</span></div>
+		<div class="text">Even though I don't have much experience in official debating, I do think I am a good debater in everyday life. 
+			I enjoy sharing and reasoning my opinions and views.
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	window.addEventListener("load", function () {
+		document.querySelector("a[href='/skills']").parentElement.classList.add("active");
+	});
+</script>
+
+<% include partials/footer%>
