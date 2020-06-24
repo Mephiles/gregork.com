@@ -37,6 +37,10 @@
         body>.footer i.fa-facebook {
             color: #4267B2;
         }
+        body>.footer i.fa-at {
+            position: relative;
+            top: 2px;
+        }
 
         @media screen and (max-width: 1000px){
             body>.footer {
@@ -76,7 +80,8 @@
     <div class="footer">
         <div class="item"><a href="https://www.facebook.com/gkaljulaid" target="_blank"><i class="fab fa-facebook"></i><div class="text">Gregor Kaljulaid</div></a></div>
         <div class="item"><a href="https://github.com/Mephiles" target="_blank"><i class="fab fa-github"></i><div class="text">Mephiles</div></a></div>
-        <div class="item"><a href="https://steamcommunity.com/id/mephilez" target="_blank"><i class="fab fa-steam"></i><div class="text">Mephiles</div></a></div>
+        <!-- <div class="item"><a href="https://steamcommunity.com/id/mephilez" target="_blank"><i class="fab fa-steam"></i><div class="text">Mephiles</div></a></div> -->
+        <div class="item"><a id="mail-link"><i class="fas fa-at"></i><div class="text"></div></a></div>
         <div class="item"><a><i class="fab fa-discord"></i><div class="text">Mephiles#1547</div></a></div>
     </div>
     <script>
@@ -105,6 +110,12 @@
                     document.querySelector("body>.footer").style.top = (document.querySelector(".nav-inner .right.links").offsetHeight + document.querySelector(".nav-inner .right.links").offsetTop).toString() + "px";
                 }
             });
+
+            let mail_name = "gregor.kaljulaid";
+            let mail_service = "gmail.com";
+
+            document.querySelector("#mail-link").setAttribute("href", `mailto:${mail_name}@${mail_service}`);
+            document.querySelector("#mail-link .text").innerText = `${mail_name}@${mail_service}`;
         });
     </script>
 </body>
