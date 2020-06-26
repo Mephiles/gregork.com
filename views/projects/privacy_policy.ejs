@@ -1,0 +1,74 @@
+<% include ../partials/header %>
+
+<style>
+    body {
+	    padding-bottom: 100px;
+    }
+    .main>.heading {
+        font-size: 30px;
+        font-weight: 600;
+        border-bottom: 2px solid lightgray;
+        width: fit-content;
+        min-width: 250px;
+        padding-bottom: 5px;
+    }
+    .main>.time {
+        margin-top: 5px;
+        margin-bottom: 40px;
+        font-size: 14px;
+    }
+    .main>.description {
+        font-size: 16px;
+    }
+    .main>.last-edited {
+        text-align: right;
+        font-size: 15px;
+        color: gray;
+        margin-top: 10px;
+    }
+    .main>.footer {
+        margin-top: 50px;
+    }
+    .footer>.heading {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .footer>.info {
+        font-size: 16px;
+    }
+    .footer a {
+        color: gray;
+    }
+    .footer a:hover {
+        color: black;
+    }
+
+</style>
+
+<div class="main">
+    <div class="heading">Privacy Policy</div>
+    <div class="time">24.02.2020</div>
+    <div class="description">
+I had quite a few problems with publishing my extension TornTools on Chrome Web Store. 
+One of them was that I had to create a Privacy Policy. 
+I had never done such a thing so I used some presets from the web as an example and put together something that I can use.
+<br><br>
+I intend on updating it whenever it needs to be changed or if I need to add another app to the list.
+    </div>
+    <div class="last-edited">last edited: 26.06.2020</div>
+    <div class="footer">
+        <div class="heading">Links</div>
+        <div class="info">
+            <div class="item"><a href="https://github.com/Mephiles/privacy_policy" target="_blank">Github</a></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.addEventListener("load", function(){
+        document.querySelector("a[href='/projects']").parentElement.classList.add("active");
+    });
+</script>
+
+<% include ../partials/footer %>

@@ -1,0 +1,74 @@
+<% include ../partials/header %>
+
+<style>
+    body {
+	    padding-bottom: 100px;
+    }
+    .main>.heading {
+        font-size: 30px;
+        font-weight: 600;
+        border-bottom: 2px solid lightgray;
+        width: fit-content;
+        min-width: 250px;
+        padding-bottom: 5px;
+    }
+    .main>.time {
+        margin-top: 5px;
+        margin-bottom: 40px;
+        font-size: 14px;
+    }
+    .main>.description {
+        font-size: 16px;
+    }
+    .main>.last-edited {
+        text-align: right;
+        font-size: 15px;
+        color: gray;
+        margin-top: 10px;
+    }
+    .main>.footer {
+        margin-top: 50px;
+    }
+    .footer>.heading {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .footer>.info {
+        font-size: 16px;
+    }
+    .footer a {
+        color: gray;
+    }
+    .footer a:hover {
+        color: black;
+    }
+
+</style>
+
+<div class="main">
+    <div class="heading">Minigames</div>
+    <div class="time">13.02.2019</div>
+    <div class="description">
+These minigames started out as a fun little project. I initially started with checkers. 
+It has a few bugs and it is offline only but it works quite well and does what it's supposed to.
+<br><br>
+The website consists of Checkers, Minesweeper, Snake and a Sudoku solver. 
+The sudoku solver was a fun competitive project that will try to solve different level sudokus that either the user inputs themself or uses the preset settings.
+    </div>
+    <div class="last-edited">last edited: 26.06.2020</div>
+    <div class="footer">
+        <div class="heading">Links</div>
+        <div class="info">
+            <div class="item"><a href="https://github.com/Mephiles/games" target="_blank">Github</a></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.addEventListener("load", function(){
+        document.querySelector("a[href='/projects']").parentElement.classList.add("active");
+    });
+</script>
+
+<% include ../partials/footer %>
