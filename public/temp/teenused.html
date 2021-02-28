@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RK | Teenused</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+    <!-- Styles -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        body>.pusher {
+            width: calc((100% - 970px) / 2);
+        }
+
+        a {
+            text-decoration: unset;
+            color: inherit;
+        }
+
+        .join-button {
+            line-height: normal;
+            margin: 0 5px;
+            width: fit-content;
+        }
+
+        .join-button a div {
+            width: 80px;
+            padding: 5px 13px;
+            background-color: #00ACED;
+            color: white;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .join-button.inverted a div {
+            border: 1px solid white;
+        }
+
+        #blue-circle {
+            background-color: #00ACED;
+            width: 1200px;
+            height: 1200px;
+            border-radius: 46%;
+            position: absolute;
+            top: -747px;
+            right: -738px;
+            z-index: -9999;
+        }
+
+        .content {
+            width: 812px;
+            margin: auto;
+            position: relative;
+        }
+
+        .header {
+            height: 100px;
+            line-height: 100px;
+            display: flex;
+        }
+
+        .header>* {
+            width: 50%;
+        }
+
+        .header .links {
+            display: flex;
+        }
+
+        .header .links .link {
+            margin: 0 15px;
+            color: white;
+        }
+
+        .header .links .join-button {
+            margin-top: 32px;
+        }
+
+        #top-logo {
+            background-image: url(./media/logos/est.svg);
+            width: 100%;
+            height: 100%;
+            background-position: left;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-top: 10px;
+        }
+
+        .section {
+            margin: 70px 0;
+        }
+
+        .motd {
+            font-size: 30px;
+            letter-spacing: 1.3px;
+            font-weight: 400;
+        }
+
+        .motd+.description {
+            font-size: 16px;
+            margin: 20px 0;
+        }
+
+        .sponsors {
+            height: 250px;
+        }
+
+        .section>.title {
+            font-size: 24px;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .section>.description {
+            width: 400px;
+            margin: 15px auto;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .cards {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .cards>.card {
+            width: 40%;
+            box-shadow: 0px 7px 8px 4px #ececec;
+        }
+        .cards>.card.title-top {
+            box-shadow: unset;
+            margin-bottom: 60px;
+        }
+
+        .cards>.card>.card-image {
+            width: auto;
+            height: 206px;
+            margin: unset;
+        }
+        .cards>.card.title-top>.card-title+.card-image {
+            box-shadow: 3px 7px 8px 6px #dedede;
+        }
+
+        .cards>.card>.card-title {
+            height: 35px;
+            line-height: 35px;
+            font-size: 14px;
+            width: fit-content;
+            padding: 0 5px;
+            margin: auto;
+            border-bottom: 6px solid #00ACED;
+            box-sizing: border-box;
+        }
+        .cards>.card.title-top>.card-title {
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-bottom: unset;
+            font-size: 16px;
+        }
+
+
+        .image {
+            width: 622px;
+            height: 350px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 20px auto;
+        }
+
+        #image-1 {
+            background-image: url(./media/images/robotis_club.png);
+            transform: rotate(13deg);
+            width: 350px;
+            height: 197px;
+            position: absolute;
+            right: 22px;
+            box-shadow: 1px 7px 13px 3px #17171745;
+        }
+
+        #image-2 {
+            background-image: url(./media/images/woman_and_robot.jfif);
+        }
+
+        #image-3 {
+            background-image: url(./media/images/woman_and_robot.jfif);
+        }
+
+        #image-4 {
+            background-image: url(./media/images/woman_and_robot.jfif);
+        }
+
+        #image-5 {
+            background-image: url(./media/images/woman_and_robot.jfif);
+        }
+        #image-6 {
+            background-image: url(./media/images/woman_and_robot.jfif);
+        }
+        #image-7 {
+            background-image: url(./media/images/woman_and_robot.jfif);
+        }
+        #image-8 {
+            background-image: url(./media/images/woman_and_robot.jfif);
+        }
+
+        .mapouter {
+            width: 622px;
+            height: 350px;
+            margin: auto;
+            border-left: 6px solid #00ACED;
+            border-right: 6px solid #00ACED;
+        }
+
+        .mapouter>.gmap_canvas {
+            width: inherit;
+            height: inherit;
+        }
+
+        .card.review {
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 6px solid #00ACED;
+        }
+        .stars {
+            display: flex;
+        }
+        .stars>div {
+            color: orange;
+        }
+        .quote {
+            color: gray;
+            font-style: italic;
+            font-size: 15px;
+            height: 100%;
+            padding-bottom: 10px;
+        }
+        .person {
+            display: flex;
+        }
+        .person .image {
+            width: 50px;
+            height: 50px;
+            margin: unset;
+            border-radius: 100%;
+            background-size: cover;
+        }
+        .person .details {
+            padding-left: 10px;
+            font-size: 12px;
+            padding-top: 7px;
+        }
+        .person .details .name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .footer {
+            width: 100%;
+            height: 38px;
+            line-height: 38px;
+            display: flex;
+            background-color: #00ACED;
+            color: white;
+            font-size: 12px;
+        }
+
+        .footer>.left {
+            text-align: center;
+            width: 60%;
+        }
+
+        .footer>.pusher {
+            width: 100%;
+        }
+
+        .footer>.right {
+            width: 150px;
+            display: flex;
+        }
+
+        .footer .right .icons {
+            margin-right: 10px;
+        }
+
+        .footer .right .icons i {
+            font-size: 17px;
+            position: relative;
+            top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pusher"></div>
+    <div class="content">
+        <div id="blue-circle"></div>
+        <div class="header">
+            <div class="logo"><a href="./index.html">
+                    <div id="top-logo"></div>
+                </a></div>
+            <div class="links">
+                <div class="link"><a href="./teenused.html">Teenused</a></div>
+                <div class="link"><a href="">Kursused</a></div>
+                <div class="link"><a href="">Blogi</a></div>
+                <div class="link"><a href="">Kontakt</a></div>
+                <div class="join-button inverted"><a href="">
+                        <div>Liitu</div>
+                    </a></div>
+            </div>
+        </div>
+
+        <!-- Top content -->
+        <div class="section" style="display: flex; height: 300px;">
+            <div class="column" style="width: 45%;">
+                <div class="motd">Teenused</div>
+                <div class="description"><b>Robotiklubi</b> insenerid teostavad Sinule vajalikke teenuseid hea hinnaga.</div>
+            </div>
+            <div class="column" style="width: 55%;">
+                <div class="image" id="image-1"></div>
+            </div>
+        </div>
+
+        <!-- Services' cards -->
+        <div class="section">
+            <div class="cards">
+                <div class="card">
+                    <div class="card-image image" id="image-2"></div>
+                    <div class="card-title">Robootika lahendused</div>
+                </div>
+                <div class="card">
+                    <div class="card-image image" id="image-3"></div>
+                    <div class="card-title">3D Printimine</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tehtud tööd -->
+        <div class="section" style="margin-top: 90px;">
+            <div class="title" style="margin-bottom: 30px;">Tehtud tööd</div>
+            <div class="cards">
+                <div class="card title-top">
+                    <div class="card-title">Filmirobtid Tipp ja Täpp</div>
+                    <div class="card-image image" id="image-4"></div>
+                </div>
+                <div class="card title-top">
+                    <div class="card-title">Tellimustöö #1</div>
+                    <div class="card-image image" id="image-5"></div>
+                </div>
+                <div class="card title-top">
+                    <div class="card-title">Interaktiivse filmi puldid</div>
+                    <div class="card-image image" id="image-5"></div>
+                </div>
+                <div class="card title-top">
+                    <div class="card-title">Tellimustöö #2</div>
+                    <div class="card-image image" id="image-5"></div>
+                </div>
+                <div class="card title-top">
+                    <div class="card-title">Elektroonilised poid</div>
+                    <div class="card-image image" id="image-5"></div>
+                </div>
+                <div class="card title-top">
+                    <div class="card-title">Tellimustöö #3</div>
+                    <div class="card-image image" id="image-5"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mida meie kleindid ütlevad? -->
+        <div class="section">
+            <div class="title">Mida meie kliendid ütlevad?</div>
+            <div class="cards">
+                <div class="card review" style="width: 30%;">
+                    <div class="stars">
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                    </div>
+                    <div class="quote">"This plugin is amazing with the current version, I can't imagineit, how cool will it be when you finish the all "</div>
+                    <div class="person">
+                        <div class="picture"><div class="image" id="image-6"></div></div>
+                        <div class="details">
+                            <div class="name">Michelle Rodriguez</div>
+                            <div class="occupation">CDO at <b>New Company</b></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card review" style="width: 30%;">
+                    <div class="stars">
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                        <div>&#9734;</div>
+                        <div class="star ">&#9734;</div>
+                    </div>
+                    <div class="quote">"Ribi ei saanud printida."</div>
+                    <div class="person">
+                        <div class="picture"><div class="image" id="image-7"></div></div>
+                        <div class="details">
+                            <div class="name">Kristo Pae</div>
+                            <div class="occupation">CEO at <b>Pae Grill</b></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card review" style="width: 30%;">
+                    <div class="stars">
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                        <div>&#9734;</div>
+                    </div>
+                    <div class="quote">"Pmst naq. Mahe onn.."</div>
+                    <div class="person">
+                        <div class="picture"><div class="image" id="image-8"></div></div>
+                        <div class="details">
+                            <div class="name">Tomas Anijharv</div>
+                            <div class="occupation">Student at <b>Eluülikool</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="left">MTÜ TTÜ Robotiklubi @ 2020</div>
+            <div class="pusher"></div>
+            <div class="right">
+                <div class="icons">
+                    <div class="icon"><i class="fab fa-facebook-square"></i></div>
+                </div>
+                <div class="link"><a href="">Kontakt</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="pusher" style="z-index: 999; background-color: white;"></div>
+</body>
+
+</html>

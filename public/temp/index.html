@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
         body>.pusher {
-            width: calc((100% - 1000px) / 2);
+            width: calc((100% - 970px) / 2);
         }
         a {
             text-decoration: unset;
@@ -58,7 +58,7 @@
             z-index: -9999;
         }
         .content {
-            max-width: 1000px;
+            width: 812px;
             margin: auto;
             position: relative;
         }
@@ -105,7 +105,7 @@
             margin: 20px 0;
         }
         .sponsors {
-            height: 250px;
+            height: 200px;
         }
 
         .section>.title {
@@ -168,7 +168,12 @@
             background-image: url(./media/images/woman_and_robot.jfif);
         }
         #image-5 {
-            background-image: url(./media/images/robotis_club.png);
+            background-image: url(./media/images/image_collage.png);
+            position: absolute;
+            width: 700px;
+            height: 600px;
+            top: 40px;
+            right: -160px;
         }
 
         .mapouter {
@@ -219,9 +224,9 @@
     <div class="content">
         <div id="blue-circle"></div>
         <div class="header">
-            <div class="logo"><div id="top-logo"></div></div>
+            <div class="logo"><a href="./index.html"><div id="top-logo"></div></a></div>
             <div class="links">
-                <div class="link"><a href="">Teenused</a></div>
+                <div class="link"><a href="./teenused.html">Teenused</a></div>
                 <div class="link"><a href="">Kursused</a></div>
                 <div class="link"><a href="">Blogi</a></div>
                 <div class="link"><a href="">Kontakt</a></div>
@@ -238,7 +243,7 @@
                 <div class="sponsors"></div>
             </div>
             <div class="column" style="width: 55%;">
-                <div class="title-image"></div>
+                <div class="image" id="image-5"></div>
             </div>
         </div>
 
